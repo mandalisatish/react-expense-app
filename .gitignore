@@ -4,6 +4,7 @@
 
 # dependencies
 /node_modules
+code/09-finished/node_modules
 /.pnp
 .pnp.js
 
@@ -23,3 +24,5 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+code/09-finished/.eslintcache
+code/09-finished/package-lock.json

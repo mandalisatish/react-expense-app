@@ -14,7 +14,12 @@ const Expenses = (props) => {
 
   return (
     <div>
-      <Card className='expenses'>
+      {/* <div className="card expenses"></div> 
+        Retrieve complete html code placed inside <Card> using "props.children" */
+      }
+      <Card className='expenses'> 
+        { /* Here passing functional reference 'filterChangeHandler' to other component. 
+        Execution of this function will comes in to action in other component i.e 'ExpensesFilter' */}
         <ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler} />
         <ExpenseItem
           title={props.items[0].title}
