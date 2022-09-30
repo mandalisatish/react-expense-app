@@ -6,6 +6,7 @@ import ErrorModal from '../UI/ErrorModal';
 import Search from './Search';
 import useHttp from '../../hooks/http';
 
+//'CurrentIngredients' hold the Current React state of ingredients 
 const ingredientReducer = (currentIngredients, action) => {
   switch (action.type) {
     case 'SET':
@@ -21,6 +22,7 @@ const ingredientReducer = (currentIngredients, action) => {
 
 const Ingredients = () => {
   const [userIngredients, dispatch] = useReducer(ingredientReducer, []);
+  // Object Destructuring. useHttp() is a custom hook and it returns object.
   const {
     isLoading,
     error,
@@ -48,7 +50,7 @@ const Ingredients = () => {
 
   const addIngredientHandler = useCallback(ingredient => {
     sendRequest(
-      'https://react-hooks-update.firebaseio.com/ingredients.json',
+      'https://ingredients-practice-default-rtdb.asia-southeast1.firebasedatabase.app/ingredients.json',
       'POST',
       JSON.stringify(ingredient),
       ingredient,
@@ -59,7 +61,7 @@ const Ingredients = () => {
   const removeIngredientHandler = useCallback(
     ingredientId => {
       sendRequest(
-        `https://react-hooks-update.firebaseio.com/ingredients/${ingredientId}.json`,
+        `https://ingredients-practice-default-rtdb.asia-southeast1.firebasedatabase.app/ingredients/${ingredientId}.json`,
         'DELETE',
         null,
         ingredientId,

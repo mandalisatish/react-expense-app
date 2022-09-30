@@ -4,6 +4,9 @@ import Card from '../UI/Card';
 import './Search.css';
 
 const Search = React.memo(props => {
+  //Object Destructuring.  In useEffect() we are using 'onLoadIngredients' function as a dependency.
+  //If you use 'props.onLoadIngredients', have to add complete 'props' as a dependency. In this case any prop changes it again runs the 
+  //useEffect() code that will be a performance issue.
   const { onLoadIngredients } = props;
   const [enteredFilter, setEnteredFilter] = useState('');
   const inputRef = useRef();
@@ -16,7 +19,7 @@ const Search = React.memo(props => {
             ? ''
             : `?orderBy="title"&equalTo="${enteredFilter}"`;
         fetch(
-          'https://react-hooks-update.firebaseio.com/ingredients.json' + query
+          'https://ingredients-practice-default-rtdb.asia-southeast1.firebasedatabase.app/ingredients.json' + query
         )
           .then(response => response.json())
           .then(responseData => {

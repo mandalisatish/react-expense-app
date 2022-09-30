@@ -35,6 +35,8 @@ const httpReducer = (curHttpState, action) => {
 };
 
 const useHttp = () => {
+  //'httpState' and 'initialState' both should be same signature.
+  //'httpReducer' return object, that will similar to 'httpState'
   const [httpState, dispatchHttp] = useReducer(httpReducer, initialState);
 
   const clear = useCallback(() => dispatchHttp({ type: 'CLEAR' }), []);

@@ -13,6 +13,7 @@ const AuthContextProvider = props => {
   };
 
   return (
+    /* In Provider component, object specified in 'value' prop must equal to 'AuthContext' obj signature  */
     <AuthContext.Provider
       value={{ login: loginHandler, isAuth: isAuthenticated }}
     >
